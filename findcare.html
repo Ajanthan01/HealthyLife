@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="HealthyLife provides health-related information, finding care, and tips for healthy living.">
+  <meta name="keywords" content="health, healthy living, care, conditions, tips, Sri Lanka">
+  <meta name="author" content="HealthyLife Team">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthyLife - Find Care</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #1abc9c, #16a085);
+      color: #fff;
+      text-align: center;
+      padding: 6rem 2rem;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    .search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem;
+  background-color: #fff;
+  margin: 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+}
+
+
+    .search-form h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .search-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .search-form input, .search-form select {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+
+    .search-form button {
+      padding: 1rem;
+      background-color: #1abc9c;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-form button:hover {
+      background-color: #16a085;
+    }
+
+    .care-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .care-item {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .care-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .care-item h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
+
+    .care-item p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <header>
+    <div class="logo">HealthyLife</div>
+    <nav aria-label="Main Navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="findcare.html">Find Care</a>
+      <a href="healthy-living.html">Healthy Living</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+   
+    <button onclick="logout()" class="btn-logout">Logout</button>
+  </header>
+ 
+  <main>
+    
+    <section class="hero">
+      <h1>Find Local Care</h1>
+      <p>Search for nearby healthcare providers, including hospitals, clinics, and doctors across Sri Lanka.</p>
+    </section>
+
+    
+    <section class="search-form">
+      <h2>Search for Care Providers</h2>
+      <form>
+        <input type="text" name="location" placeholder="Enter City or Zip Code" required />
+        <select name="specialty" required>
+          <option value="">Select Specialty</option>
+          <option value="cardiology">Cardiology</option>
+          <option value="dermatology">Dermatology</option>
+          <option value="pediatrics">Pediatrics</option>
+          <option value="orthopedics">Orthopedics</option>
+          <option value="neurology">Neurology</option>
+          <option value="gynecology">Gynecology</option>
+          <option value="psychology">Psychology</option>
+          <option value="dentistry">Dentistry</option>
+          <option value="oncology">Oncology</option>
+          <option value="urology">Urology</option>
+        </select>
+        <select name="province" required>
+          <option value="">Select Province</option>
+          <option value="western">Western Province</option>
+          <option value="central">Central Province</option>
+          <option value="southern">Southern Province</option>
+          <option value="northern">Northern Province</option>
+          <option value="eastern">Eastern Province</option>
+          <option value="northwestern">North Western Province</option>
+          <option value="northcentral">North Central Province</option>
+          <option value="uva">Uva Province</option>
+          <option value="sabaragamuwa">Sabaragamuwa Province</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    
+    <section class="care-list">
+      
+      <div class="care-item">
+        <h3>Dr. John Smith</h3>
+        <p>Cardiologist at HeartCare Clinic</p>
+        <p>Location: Colombo, Western Province</p>
+        <p>Specialty: Cardiology</p>
+      </div>
+
+
+      <div class="care-item">
+        <h3>Dr. Sarah Lee</h3>
+        <p>Dermatologist at Skin Solutions</p>
+        <p>Location: Kandy, Central Province</p>
+        <p>Specialty: Dermatology</p>
+      </div>
+
+      
+      <div class="care-item">
+        <h3>Dr. Michael Brown</h3>
+        <p>Pediatrician at Kids Health Center</p>
+        <p>Location: Galle, Southern Province</p>
+        <p>Specialty: Pediatrics</p>
+      </div>
+
+      
+      <div class="care-item">
+        <h3>Dr. Emily White</h3>
+        <p>Orthopedic Surgeon at Bone & Joint Clinic</p>
+        <p>Location: Jaffna, Northern Province</p>
+        <p>Specialty: Orthopedics</p>
+      </div>
+
+     
+      <div class="care-item">
+        <h3>Dr. David Green</h3>
+        <p>Neurologist at Brain & Spine Center</p>
+        <p>Location: Trincomalee, Eastern Province</p>
+        <p>Specialty: Neurology</p>
+      </div>
+
+     
+      <div class="care-item">
+        <h3>Dr. Lisa Gray</h3>
+        <p>Gynecologist at Women's Health Clinic</p>
+        <p>Location: Negombo, Western Province</p>
+        <p>Specialty: Gynecology</p>
+      </div>
+
+      
+      <div class="care-item">
+        <h3>Dr. Anand Wijesinghe</h3>
+        <p>Psychiatrist at MindCare Center</p>
+        <p>Location: Kandy, Central Province</p>
+        <p>Specialty: Psychiatry</p>
+      </div>
+
+      
+      <div class="care-item">
+        <h3>Dr. Pradeep Jayasinghe</h3>
+        <p>Orthopedic Surgeon at Bone & Joint Clinic</p>
+        <p>Location: Matara, Southern Province</p>
+        <p>Specialty: Orthopedics</p>
+      </div>
+
+      
+      <div class="care-item">
+        <h3>Dr. Heshani Kumari</h3>
+        <p>Oncologist at Cancer Care Center</p>
+        <p>Location: Colombo, Western Province</p>
+        <p>Specialty: Oncology</p>
+      </div>
+
+     
+      <div class="care-item">
+        <h3>Dr. Shanthi Perera</h3>
+        <p>Dentist at Smile Dental Clinic</p>
+        <p>Location: Colombo, Western Province</p>
+        <p>Specialty: Dentistry</p>
+      </div>
+
+      
+    </section>
+  </main>
+
+ 
+  <footer>
+    <p>&copy; 2025 HealthyLife. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

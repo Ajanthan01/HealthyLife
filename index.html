@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="HealthyLife provides health-related information, finding care, and tips for healthy living.">
+  <meta name="keywords" content="health, healthy living, care, conditions, tips">
+  <meta name="author" content="HealthyLife Team">
+  
+  <title>HealthyLife - Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #1abc9c;
+    }
+
+    .btn-logout {
+      background-color: #e74c3c;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background-color: #c0392b;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #1abc9c, #16a085);
+      color: #fff;
+      text-align: center;
+      padding: 6rem 2rem;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .btn-primary {
+      background-color: #fff;
+      color: #16a085;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #16a085;
+      color: #fff;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin: 5rem 0;
+      text-align: center;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      width: 30%;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin: 1rem 0;
+    }
+
+    .btn-link {
+      color: #16a085;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer .social-links a {
+      margin: 0 1rem;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    footer .social-links a:hover {
+      color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+  
+ 
+  <header>
+    <div class="logo">HealthyLife</div>
+    <nav aria-label="Main Navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="findcare.html">Find Care</a>
+      <a href="healthy-living.html">Healthy Living</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  
+    <button onclick="logout()" class="btn-logout">Logout</button>
+  </header>
+
+  
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to <span>HealthyLife</span></h1>
+        <p>Your trusted partner in health information, guidance, and care access.</p>
+        <a href="conditions.html" class="btn-primary">Explore Conditions</a>
+      </div>
+    </section>
+
+ 
+    <section class="features">
+      <div class="feature-card">
+        <h2>📚 Trusted Health Articles</h2>
+        <p>Explore reliable information on conditions, symptoms, and treatments.</p>
+        <a href="conditions.html" class="btn-link">Read Articles →</a>
+      </div>
+      <div class="feature-card">
+        <h2>🏥 Find Local Care</h2>
+        <p>Locate hospitals, doctors, and clinics near you.</p>
+        <a href="findcare.html" class="btn-link">Search Care →</a>
+      </div>
+      <div class="feature-card">
+        <h2>💪 Stay Healthy</h2>
+        <p>Tips on fitness, diet, and mental well-being.</p>
+        <a href="healthy-living.html" class="btn-link">Live Well →</a>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; 2025 HealthyLife. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedIn"); 
+      window.location.href = "login.html"; 
+    }
+  </script>
+</body>
+</html>

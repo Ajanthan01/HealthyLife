@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore common health conditions, symptoms, and treatments with HealthyLife.">
+  <meta name="keywords" content="health conditions, symptoms, treatment, diabetes, heart disease, arthritis, cancer, asthma, stroke">
+  <meta name="author" content="HealthyLife Team">
+
+  <title>HealthyLife - Health Conditions</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+    .btn-logout {
+      background-color: #e74c3c;
+      border: 2px;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    main {
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #1abc9c, #16a085);
+      color: #fff;
+      text-align: center;
+      padding: 8rem 2rem;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .conditions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .condition-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .condition-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .condition-card h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .condition-card p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-top: 1rem;
+    }
+
+    .faq {
+      margin-top: 4rem;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .accordion-item {
+      background-color: #16a085;
+      color: #fff;
+      padding: 1rem;
+      text-align: left;
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion-item:hover {
+      background-color: #1abc9c;
+    }
+
+    .panel {
+      display: none;
+      padding: 1rem;
+      background-color: #f4f8fb;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <header>
+    <div class="logo">HealthyLife</div>
+    <nav aria-label="Main Navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="findcare.html">Find Care</a>
+      <a href="healthy-living.html">Healthy Living</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+   
+    <button onclick="logout()" class="btn-logout">Logout</button>
+  </header>
+
+ 
+  <main>
+    
+    <section class="hero">
+      <h1>Explore Health Conditions</h1>
+      <p>Learn about common conditions, symptoms, causes, and treatment options.</p>
+    </section>
+
+
+    <section class="conditions-list">
+   
+      <article class="condition-card">
+        <h2>🩸 Diabetes</h2>
+        <p>Diabetes affects how your body processes blood sugar. Managing diet, exercise, and medication is key.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>❤️ Heart Disease</h2>
+        <p>Includes coronary artery disease, heart attacks, and other cardiovascular conditions. Prevention includes a healthy lifestyle.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦴 Arthritis</h2>
+        <p>Arthritis is inflammation of joints causing pain and stiffness. Physical therapy and medication can help manage symptoms.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🫀 Stroke</h2>
+        <p>A stroke occurs when blood flow to the brain is interrupted. Early treatment is essential for recovery.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦷 Asthma</h2>
+        <p>Asthma affects the airways in the lungs, causing breathing problems. Management includes inhalers and avoiding triggers.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💔 High Blood Pressure</h2>
+        <p>High blood pressure can damage the heart and arteries. Lifestyle changes and medication can help control it.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🧠 Alzheimer's Disease</h2>
+        <p>A progressive disease that affects memory and thinking. Early detection can help manage symptoms.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦷 Parkinson's Disease</h2>
+        <p>Parkinson's affects movement and coordination. Treatment may involve medication and therapy to manage symptoms.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🌟 Cancer</h2>
+        <p>Cancer involves uncontrolled cell growth and can affect various organs. Treatment depends on the type and stage.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💤 Sleep Apnea</h2>
+        <p>Sleep apnea causes interrupted breathing during sleep. Treatment includes CPAP therapy and lifestyle changes.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦷 COPD (Chronic Obstructive Pulmonary Disease)</h2>
+        <p>COPD is a group of lung diseases that block airflow. Smoking cessation and medication are key for management.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🍽️ Eating Disorders</h2>
+        <p>Eating disorders, like anorexia or bulimia, affect eating habits and can lead to serious health issues. Treatment involves therapy and medical care.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦠 HIV/AIDS</h2>
+        <p>HIV is a virus that attacks the immune system. Antiretroviral therapy can help manage the virus and prevent progression to AIDS.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🏋️‍♂️ Osteoporosis</h2>
+        <p>Osteoporosis weakens bones, making them fragile and more likely to break. Calcium and vitamin D can help maintain bone health.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>👁️ Glaucoma</h2>
+        <p>Glaucoma damages the optic nerve and can lead to blindness. Early detection and treatment can help manage the condition.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦵 Multiple Sclerosis</h2>
+        <p>Multiple sclerosis affects the brain and spinal cord, causing muscle weakness and coordination problems. Treatment focuses on managing symptoms.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💉 Hepatitis</h2>
+        <p>Hepatitis is inflammation of the liver, often caused by a virus. Treatment varies depending on the type of hepatitis.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💪 Fibromyalgia</h2>
+        <p>Fibromyalgia causes widespread muscle pain and fatigue. Treatment includes medications and stress management techniques.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💊 Epilepsy</h2>
+        <p>Epilepsy is a neurological disorder that causes seizures. Medication and lifestyle adjustments can help control it.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🔬 Autoimmune Diseases</h2>
+        <p>Autoimmune diseases occur when the immune system attacks healthy cells. Treatment focuses on controlling the immune response.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦻 Hearing Loss</h2>
+        <p>Hearing loss can occur due to aging, noise exposure, or injury. Hearing aids and medical treatments can help improve hearing.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🩺 Kidney Disease</h2>
+        <p>Chronic kidney disease involves the gradual loss of kidney function. Early detection and treatment can slow progression.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🦷 Migraine</h2>
+        <p>Migraines cause intense headaches and can be triggered by various factors. Medication and lifestyle changes can help manage them.</p>
+      </article>
+
+     
+      <article class="condition-card">
+        <h2>🦷 Psoriasis</h2>
+        <p>Psoriasis is a chronic skin condition that causes skin cells to build up and form scales. Treatment may include topical creams and light therapy.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🧬 Sickle Cell Disease</h2>
+        <p>Sickle cell disease affects the red blood cells, causing pain and complications. Treatment includes pain management and blood transfusions.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>👂 Chronic Sinusitis</h2>
+        <p>Chronic sinusitis is inflammation of the sinuses that lasts for months. It may require medication or surgery to relieve symptoms.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>🧠 Concussion</h2>
+        <p>A concussion is a mild traumatic brain injury caused by a blow to the head. Rest and medical supervision are crucial for recovery.</p>
+      </article>
+
+      <article class="condition-card">
+        <h2>💛 Hyperthyroidism</h2>
+        <p>Hyperthyroidism occurs when the thyroid gland overproduces hormones. Treatment includes medication or surgery to remove part of the thyroid.</p>
+      </article>
+
+     
+    </section>
+
+    
+    <section class="faq">
+      <h2>🧠 Frequently Asked Questions</h2>
+      <div class="accordion">
+        <button class="accordion-item">What is Diabetes?</button>
+        <div class="panel">
+          <p>Diabetes is a metabolic disease where the body cannot properly use insulin to control blood sugar.</p>
+        </div>
+
+        <button class="accordion-item">How to manage Heart Disease?</button>
+        <div class="panel">
+          <p>Managing heart disease includes medications, a heart-healthy diet, regular exercise, and avoiding smoking.</p>
+        </div>
+
+        <button class="accordion-item">What is the best way to treat Arthritis?</button>
+        <div class="panel">
+          <p>Treatment includes physical therapy, anti-inflammatory medications, and in some cases, surgery.</p>
+        </div>
+
+       
+      </div>
+    </section>
+  </main>
+
+  
+  <footer>
+    <p>&copy; 2025 HealthyLife. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
