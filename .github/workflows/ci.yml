@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 📥 Checkout Code
+    - name:  Checkout Code
       uses: actions/checkout@v3
 
-    - name: 🐘 Set up PHP
+    - name:  Set up PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
 
-    - name: ✅ Validate PHP Syntax
+    - name:  Validate PHP Syntax
       run: |
         find . -name "*.php" -exec php -l {} \;
