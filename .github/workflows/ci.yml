@@ -27,5 +27,11 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Run tests
-        run: npm run test
+      - name: Run unit tests
+        run: npm run test:unit  # Run unit tests using the "test:unit" script
+
+      - name: Run integration tests
+        run: npm run test:integration  # Run integration tests using the "test:integration" script
+
+      - name: Run E2E tests
+        run: npm run test:e2e  # Run E2E tests using the "test:e2e" script
