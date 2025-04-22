@@ -24,8 +24,6 @@ jobs:
       with:
         path: node_modules
         key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-modules-
     - name: Install Dependencies
       run: npm install
     - name: Run Unit Tests
@@ -73,11 +71,4 @@ jobs:
     - name: Run npm audit for security vulnerabilities
       run: npm audit --audit-level=high
 
-  upload_artifacts:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Upload Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results
-        path: ./test-results/
+ 
