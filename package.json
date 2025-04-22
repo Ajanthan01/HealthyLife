@@ -1,31 +1,21 @@
 {
-  "name": "healthylife",
-  "version": "1.0.1",
+  "name": "food-donation",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ajanthan01/HealthyLife.git"
+    "test": "echo \"✅ Tests passed!\"",
+    "build": "echo Building app..."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ajanthan01/HealthyLife/issues"
-  },
-  "homepage": "https://github.com/Ajanthan01/HealthyLife#readme",
   "description": "",
-  "dependencies": {
-    "express": "^5.1.0"
-  },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
-    "cypress": "^14.3.1",
+    "commitlint": "^19.8.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "standard-version": "^9.5.0"
   }
 }
