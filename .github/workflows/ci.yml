@@ -1,4 +1,4 @@
-name: PHP CI
+name: Node.js CI Pipeline
 
 on:
   push:
@@ -7,18 +7,77 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  unit_tests:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
     steps:
-    - name:  Checkout Code
+    - name: Checkout Code
       uses: actions/checkout@v3
-
-    - name:  Set up PHP
-      uses: shivammathur/setup-php@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-        php-version: '8.1'
+        node-version: ${{ matrix.node-version }}
+    - name: Cache Node modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+    - name: Install Dependencies
+      run: npm install
+    - name: Run Unit Tests
+      run: npm run test:unit
 
-    - name:  Validate PHP Syntax
-      run: |
-        find . -name "*.php" -exec php -l {} \;
+  integration_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
+      run: npm install
+    - name: Run Integration Tests
+      run: npm run test:integration
+
+  e2e_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
+      run: npm install
+    - name: Run E2E Tests
+      run: npm run test:e2e
+
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Run npm audit for security vulnerabilities
+      run: npm audit --audit-level=high
+
+  upload_artifacts:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: ./test-results/
