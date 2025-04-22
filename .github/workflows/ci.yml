@@ -1,37 +1,52 @@
-name: integration
+name: CI/CD Pipeline
 
 on:
-  pull_request:
-    branches: [ "main" ]
+  push:
+    branches:
+      - "main"  # Run when there is a push to the 'main' branch
 
 jobs:
-  test-on-node:
-    runs-on: ubuntu-latest
+  ci:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu
     strategy:
       fail-fast: false
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [16.x, 18.x, 20.x]  # Test across different versions of Node.js
 
     steps:
-      - uses: actions/checkout@v4
+      # 1. Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      # 2. Set up Node.js with caching
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
-      - name: Build the app
-        run: npm run build
-
+      # 4. Run unit tests
       - name: Run unit tests
-        run: npm run test:unit  # Run unit tests using the "test:unit" script
+        run: npm run test:unit  # Ensure you have a script like "test:unit": "jest" in package.json
 
+      # 5. Run integration tests
       - name: Run integration tests
-        run: npm run test:integration  # Run integration tests using the "test:integration" script
+        run: npm run test:integration  # Ensure you have a script like "test:integration": "jest --testPathPattern=integration"
 
+      # 6. Run end-to-end (E2E) tests
       - name: Run E2E tests
-        run: npm run test:e2e  # Run E2E tests using the "test:e2e" script
+        run: npm run test:e2e  # Ensure you have a script like "test:e2e": "cypress open"
+
+      # 7. Run linting and security checks
+      - name: Run linting and security checks
+        run: |
+          npm run lint  # Ensure you have linting set up (e.g., ESLint)
+          npm audit     # Ensure you run npm audit for security vulnerabilities
+
+      # 8. Generate changelog and handle versioning (standard-version)
+      - name: Run release process
+        run: npm run release  # Ensure "release": "standard-version" exists in package.json
