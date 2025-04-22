@@ -1,34 +1,31 @@
-{
-  "name": "healthylife",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:unit": "jest",  // Unit testing with Jest
-    "test:integration": "jest --testPathPattern=integration", 
-    "test:e2e": "cypress open",  // E2E testing with Cypress
-    "release": "standard-version"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ajanthan01/HealthyLife.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ajanthan01/HealthyLife/issues"
-  },
-  "homepage": "https://github.com/Ajanthan01/HealthyLife#readme",
-  "description": "",
-  "dependencies": {
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "jest": "^29.7.0",  // Jest for unit and integration testing
-    "standard-version": "^9.5.0",  // For automated versioning and changelog
-    "cypress": "^12.0.0"  
-  }
-}
+name: integration
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-on-node:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test
