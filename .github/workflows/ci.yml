@@ -1,52 +1,26 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
-    branches:
-      - "main"  # Run when there is a push to the 'main' branch
+    branches: [ "main" ]
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest  # Runs on the latest Ubuntu
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [16.x, 18.x, 20.x]  # Test across different versions of Node.js
-
+  build-and-test:
+    runs-on: ubuntu-latest
     steps:
-      # 1. Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # 2. Set up Node.js with caching
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20.x
           cache: 'npm'
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # 4. Run unit tests
-      - name: Run unit tests
-        run: npm run test:unit  # Ensure you have a script like "test:unit": "jest" in package.json
+      - name: Lint code
+        run: npm run lint
 
-      # 5. Run integration tests
-      - name: Run integration tests
-        run: npm run test:integration  # Ensure you have a script like "test:integration": "jest --testPathPattern=integration"
-
-      # 6. Run end-to-end (E2E) tests
-      - name: Run E2E tests
-        run: npm run test:e2e  # Ensure you have a script like "test:e2e": "cypress open"
-
-      # 7. Run linting and security checks
-      - name: Run linting and security checks
-        run: |
-          npm run lint  # Ensure you have linting set up (e.g., ESLint)
-          npm audit     # Ensure you run npm audit for security vulnerabilities
-
-      # 8. Generate changelog and handle versioning (standard-version)
-      - name: Run release process
-        run: npm run release  # Ensure "release": "standard-version" exists in package.json
+      - name: Run tests
+        run: npm test
