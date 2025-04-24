@@ -24,4 +24,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ajanthan345/healthylife:latest
+        tags: ajanthan345/aj:latest
